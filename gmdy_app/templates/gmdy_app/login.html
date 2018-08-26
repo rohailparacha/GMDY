@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="ubuntomedium/Fonts/font.css" type="text/css"/>
+		<link rel="stylesheet" href="DancingScript/Fonts/font.css" type="text/css"/>	
+		<link rel="stylesheet" href="ubuntu light/Fonts/font.css" type="text/css"/>
+		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style type="text/css">
+	
+	.bgheader
+	{
+		background-color: #1373b9;
+	}
+	.bgheader h3
+	{
+		color:white;
+	}	
+	.login
+	{
+		color: white;
+	}
+	.logout
+	{
+		margin-left: 36px;
+	}
+
+
+.loginbtn
+{
+
+	text-align: center;
+	margin-top: 30px;
+	padding-bottom: 10px;
+}
+.loginbtn button
+{
+		padding: 10px 31px;
+    border-radius: 20px 21px;
+    /* border: none; */
+    border: 2px solid black;
+   background-color: white;
+   color: black;
+   text-align: center;
+}
+
+.overall
+{
+ padding-top: 180px;
+}
+</style>
+<body>
+	<section class="bgheader">
+	<div class="container-fluid">
+		<div class="col-lg-1">
+			<a href="/"><img src="{% static 'logo.png' %}"  width="100%"></a>
+		</div>	
+		<div class="col-lg-8">
+			<h3>GMDY Dashboard</h3>
+		</div>
+		
+		<div class="col-lg-3 login">
+			{% if not request.user.is_authenticated %}
+			<h3 class="col-lg-2"><a href="/login" style="color: white">Login</a></h3>
+			{% else %}
+			<h3 class="col-lg-1 logout"><a href="/logout" style="color: white">Logout</a></h3>
+			{% endif %}
+		</div>	
+	</div>
+
+</section>	
+
+
+<section>
+	<div class="container-fluid overall">
+		<h1 style="text-align: center;">Welcome to GMDY </h1>
+		<br>
+		<br>
+		<form action="{% url 'login' %}" method="post">{% csrf_token %}
+			<div class="col-lg-12" style="    text-align: center;">
+				<label>Email Address </label>
+				<input type="text" name="email" placeholder="email or username">
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="col-lg-12" style="    text-align: center;">
+				<label>Password </label>
+				<input type="Password" name="pass" style="margin-left:30px;">
+			</div>
+
+			<div class="col-lg-12 loginbtn">
+				<button>Login</button>
+			</div>
+
+
+		</form>		
+	</div>
+</section>
+
+
+
+
+</body>
+</html>

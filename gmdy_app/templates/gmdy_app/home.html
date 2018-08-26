@@ -1,0 +1,379 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="ubuntomedium/Fonts/font.css" type="text/css"/>
+		<link rel="stylesheet" href="DancingScript/Fonts/font.css" type="text/css"/>	
+		<link rel="stylesheet" href="ubuntu light/Fonts/font.css" type="text/css"/>
+		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style type="text/css">
+	
+	.bgheader
+	{
+		background-color: #1373b9;
+	}
+	.bgheader h3
+	{
+		color:white;
+	}	
+	.login
+	{
+		color: white;
+	}
+	.logout
+	{
+		margin-left: 36px;
+	}
+	.previous
+	{
+		padding: 10px 0px;
+    border-radius: 20px 21px;
+    /* border: none; */
+    border: 2px solid black;
+    background: white;
+	}
+
+	.search
+	{
+		padding: 10px 25px;
+    border-radius: 20px 21px;
+    /* border: none; */
+    border: 2px solid black;
+    background: #c9c9c9;
+	}
+
+	.add
+	{
+			padding: 10px 27px;
+    border-radius: 20px 21px;
+    /* border: none; */
+    border: 2px solid black;
+    background-color: white;
+	}
+	.form-control
+	{
+		width: 100%;
+		    border-radius: 16px;
+		        border-color: black;
+	}
+.go
+{
+	    border: 1px solid black;
+    left: 247px;
+    top: 5px;
+    position: absolute;
+    border-radius: 15px 4px 5px 14px;
+    border-color: black;
+    background-color: white;
+    height: 33px;
+    margin-top: -4px;
+    border-right: none;
+}
+
+.save
+{
+		padding: 10px 31px;
+    border-radius: 20px 21px;
+    /* border: none; */
+    border: 2px solid black;
+   background-color: white;
+   color: black;
+   text-align: center;
+   margin-left: 50px;
+
+}
+.delete
+{
+
+	text-align: center;
+}
+.delete button
+{
+		padding: 10px 31px;
+    border-radius: 20px 21px;
+    /* border: none; */
+    border: 2px solid black;
+   background-color: white;
+   color: black;
+   text-align: center;
+}
+.products
+{
+	height:300px;border:1px solid #000;margin-left: 30px;padding: 0px;
+}
+.searchpart
+{
+	padding: 0px;margin-top: 10px;
+}
+.pic
+{
+	margin-left: 15px;
+}
+
+.checkbox
+{
+	margin-left: 50px;
+}
+.updatetext
+{
+    margin-bottom: 42px;
+}
+.secondrow
+{
+	margin-top: 35px;
+}
+
+
+{
+
+}
+
+.createbtn
+{
+
+	text-align: center;
+	margin-top: 30px;
+	padding-bottom: 10px;
+}
+.createbtn button
+{
+		padding: 10px 31px;
+    border-radius: 20px 21px;
+    /* border: none; */
+    border: 2px solid black;
+   background-color: white;
+   color: black;
+   text-align: center;
+}
+
+@media only screen and (min-width: 1200px) 
+{
+
+}
+
+
+
+</style>
+
+<body>
+
+<section class="bgheader">
+	<div class="container-fluid">
+		<div class="col-lg-1">
+			<a href="/"><img src="{% static 'logo.png' %}"  width="100%"></a>
+		</div>	
+		<div class="col-lg-8">
+			<h3>GMDY Dashboard</h3>
+		</div>
+		
+		<div class="col-lg-3 login">
+			{% if not request.user.is_authenticated %}
+			<h3 class="col-lg-2"><a href="/login" style="color: white">Login</a></h3>
+			{% else %}
+			<h3 class="col-lg-1 logout"><a href="/logout" style="color: white">Logout</a></h3>
+			{% endif %}
+		</div>	
+	</div>
+
+</section>	
+
+<!-- main content-->
+
+<section>
+	<div class="container-fluid"style="padding: 0px;" >
+		<div class="col-lg-2"style="padding:0px">
+			<label>Date</label>
+			<input id="date" type="date" value="2017-06-01" style="    height: 40px;">
+		</div>
+
+		<div class="col-lg-1" style="padding:0px">
+			<select style="    height: 40px;">
+			  <option value="volvo">League</option>
+			  <option value="volvo">NBA</option>
+			  <option value="saab">MLB</option>
+			  <option value="opel">Golf</option>
+			  <option value="audi">NFL</option>
+			  <option value="audi">Tennis</option>
+			</select>
+		</div>
+
+		<div class="col-lg-1"style="padding:0px">
+			<select style="    height: 40px;">
+		  		<option value="volvo">Event</option>
+		  		<option value="volvo">Lakers vs Clippers</option>
+		  		<option value="saab">Cavalers vs Bulls</option>
+		  		<option value="opel">Warriors vs Pacers</option>
+			</select>
+		</div>
+			<div class="col-lg-1" style="   margin-left: 25px;">
+			<select style="    height: 40px;">
+		  		<option value="volvo">Teams</option>
+		  		<option value="volvo">Warriors</option>
+		  		<option value="saab">poaerrs</option>
+		  	
+			</select>
+		</div>
+
+		<div class="col-lg-1" style="padding: 0px;">
+
+			<select style="    height: 40px;">
+			  <option value="volvo">Athletes</option>
+			  <option value="volvo">All</option>
+			  <option value="saab">Kevin Durant</option>
+			  <option value="opel">Klay Thomps opn</option>
+				<option value="opel">Draymond Green</option>
+				<option value="opel">Stephen Curry</option>
+				<option value="opel">Quinn Cook</option>	
+			</select>
+		</div>	
+			<div class="col-lg-3 products" style="">
+				<h3 style="border: 1px solid black;margin: 0px;    height: 38px;">Products</h3>
+				<button class="previous">Previously Linked</button>
+				<button class="search">Search</button>
+				<button class="add">Add</button>
+
+
+				<div class="col-lg-12 searchpart" style="">
+					<input type="text" name="search" class="col-lg-2 form-control" placeholder="Search">
+					<button class="col-lg-2 go">Go</button>
+				</div>
+			</div>
+
+
+			<div class="col-lg-2 pic" style="">
+				<img src="{% static 'a.jpg' %}" width="100%" style="border:1px solid black">
+				<p>Retailer Name:</p>
+				<p>Product ID</p>
+				<button class="save">Save</button>
+
+
+			</div>	
+
+
+
+	</div>
+
+</section>
+
+<section>
+	<div class="container-fluid">
+			<h4>Current Links</h4>
+			<div class="checkbox">
+			<input type="checkbox" name="vehicle" value="Bike">Product 1<br>
+		    <input type="checkbox" name="vehicle" value="Car" checked="checked">Product 2<br>
+		  	<input type="checkbox" name="vehicle" value="Bike">Product 3
+			</div>
+	</div>
+		<div class="col-lg-12 delete" style="border-bottom: 2px solid black;    padding-bottom: 17px;">
+
+			<button>Delete</button>
+		</div>	
+</section>
+
+
+<section>
+
+	<div class="container-fluid program">	
+		<h2 class="updatetext">Add/Update</h2>
+		<div class="col-lg-2">
+			<label>Program Name</label>
+			<input type="text" name="programname"">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Program URL</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Product Name</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Category</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>SKU</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Brand</label>
+			<input type="text" name="programname">
+		</div>	
+	</div>
+
+
+
+	<div class="container-fluid secondrow">
+		<div class="col-lg-2">
+			<label>MPN</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>UPC</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Price</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Product URL</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Image URL</label>
+			<input type="text" name="programname">
+		</div>	
+
+		<div class="col-lg-2">
+			<label>Stock</label>
+			<input type="text" name="programname">
+		</div>	
+	</div>
+
+
+		<div class="col-lg-12 createbtn" style="border-bottom: 2px solid black;">
+
+			<button>Create/Update</button>
+		</div>	
+
+
+
+
+</section>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
